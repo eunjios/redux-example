@@ -1,19 +1,23 @@
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { counterActions } from '../store/counter';
 
 const Counter = () => {
-  const counter = useSelector((state) => state.counter);
+  const counter = useSelector(
+    (state) => state.counter.counter
+  );
   const dispatch = useDispatch();
 
   const addHandler = () => {
-    dispatch({ type: 'ADD', value: 10 });
+    dispatch(counterActions.add(10));
   };
 
   const subHandler = () => {
-    dispatch({ type: 'SUB', value: 10 });
+    dispatch(counterActions.sub(10));
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div>
       <h2>{counter}</h2>
       <div>
         <button onClick={addHandler}>더하기</button>
