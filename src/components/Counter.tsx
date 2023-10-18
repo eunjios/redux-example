@@ -1,12 +1,12 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../hooks';
 import { counterActions } from '../store/counter';
 
 const Counter = () => {
-  const counter = useSelector(
+  const counter = useAppSelector(
     (state) => state.counter.counter
   );
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const addHandler = () => {
     dispatch(counterActions.add(10));
