@@ -1,11 +1,12 @@
 import React from 'react';
 import { useAppSelector, useAppDispatch } from '../hooks';
-import { counterActions } from '../store/counter';
+import {
+  counterActions,
+  selectCount,
+} from '../store/counter';
 
 const Counter = () => {
-  const counter = useAppSelector(
-    (state) => state.counter.counter
-  );
+  const counter = useAppSelector(selectCount);
   const dispatch = useAppDispatch();
 
   const addHandler = () => {
